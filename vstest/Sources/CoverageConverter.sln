@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{99244FF4-4006-4C29-ADB3-A3A92C2D16FE}"
-	ProjectSection(SolutionItems) = preProject
-		Libs\Microsoft.VisualStudio.Coverage.Analysis.dll = Libs\Microsoft.VisualStudio.Coverage.Analysis.dll
-		Libs\Microsoft.VisualStudio.Coverage.Interop.dll = Libs\Microsoft.VisualStudio.Coverage.Interop.dll
-		Libs\Microsoft.VisualStudio.Coverage.Symbols.dll = Libs\Microsoft.VisualStudio.Coverage.Symbols.dll
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverageConverter", "CoverageConverter.csproj", "{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverageTool", "..\..\CoverageDiff\CoverageTool.csproj", "{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,12 +21,23 @@ Global
 		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Debug|x86.ActiveCfg = Debug|x86
 		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Debug|x86.Build.0 = Debug|x86
-		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Release|Any CPU.ActiveCfg = Release|x86
-		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Release|Any CPU.Build.0 = Release|x86
+		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Release|x86.ActiveCfg = Release|x86
 		{2A9FEBAA-15AD-4445-9BEC-6F5BE11D658E}.Release|x86.Build.0 = Release|x86
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Debug|x86.Build.0 = Debug|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Release|x86.ActiveCfg = Release|Any CPU
+		{D9C0285E-1FAE-44A7-8090-BA5382C93AF2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FE1548E-C410-4D3B-99C3-71EA0ADA1130}
 	EndGlobalSection
 EndGlobal
