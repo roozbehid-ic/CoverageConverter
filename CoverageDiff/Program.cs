@@ -17,7 +17,7 @@ namespace CoverageDiff
         static void Main(string[] args)
         {
 
-            if (args.Length != 3)
+            if ((args.Length > 4) || (args.Length < 3))
             {
                 Console.WriteLine("CoverageTool [action] file1 file2 [options]");
                 Console.WriteLine("actions:");
@@ -27,6 +27,9 @@ namespace CoverageDiff
                 Console.WriteLine("-ignoremodulenamecheck : by default module names should match to considered for diff checking.");
                 return;
             }
+            bool ignoremodulenamecheck = false;
+            if ( (args.Length==4) && (args[3] == "-ignoremodulenamecheck") )
+                ignoremodulenamecheck = true;
 
             if (args[0] == "merge")
             {
@@ -109,6 +112,9 @@ namespace CoverageDiff
                 {
                     DataRow[] rows_class = dataSet1.Class.Select($"ClassKeyName = '{method.ClassKeyName.Replace("'", "''")}'");
                     DataRow[] rows_namespaces = dataSet1.NamespaceTable.Select($"NamespaceKeyName = '{((CoverageDSPriv.ClassRow)rows_class[0]).NamespaceKeyName.Replace("'", "''")}'");
+                    if ((!ignoremodulenamecheck) && (!validModules.Contains(((CoverageDSPriv.NamespaceTableRow)rows_namespaces[0]).ModuleName) ))
+                        continue;
+
                     DataRow[] rows_lines = dataSet1.Lines.Select($"MethodKeyName = '{method.MethodKeyName.Replace("'", "''")}'");
                     DataRow[] rows_sources = dataSet1.SourceFileNames.Select($"SourceFileID = '{((CoverageDSPriv.LinesRow)rows_lines[0]).SourceFileID}'");
                     title = Path.GetFileName(((CoverageDSPriv.SourceFileNamesRow)rows_sources[0]).SourceFileName) + ":" + method.MethodName;
@@ -212,6 +218,11 @@ namespace CoverageDiff
                 {
                     DataRow[] rows_class = dataSet2.Class.Select($"ClassKeyName = '{method.ClassKeyName.Replace("'", "''")}'");
                     DataRow[] rows_namespaces = dataSet2.NamespaceTable.Select($"NamespaceKeyName = '{((CoverageDSPriv.ClassRow)rows_class[0]).NamespaceKeyName.Replace("'", "''")}'");
+
+                    if ((!ignoremodulenamecheck) && (!validModules.Contains(((CoverageDSPriv.NamespaceTableRow)rows_namespaces[0]).ModuleName)))
+                        continue;
+
+
                     DataRow[] rows_lines = dataSet2.Lines.Select($"MethodKeyName = '{method.MethodKeyName.Replace("'", "''")}'");
                     DataRow[] rows_sources = dataSet2.SourceFileNames.Select($"SourceFileID = '{((CoverageDSPriv.LinesRow)rows_lines[0]).SourceFileID}'");
                     title = Path.GetFileName(((CoverageDSPriv.SourceFileNamesRow)rows_sources[0]).SourceFileName) + ":" + method.MethodName;
